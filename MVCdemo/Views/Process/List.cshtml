@@ -1,0 +1,37 @@
+﻿@model IEnumerable<System.Diagnostics.Process>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Process List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    
+    <tr>
+        <th>Action</th>
+        <th>Process ID</th>
+        <th>Process</th>
+    </tr>
+
+    @foreach (var process in this.Model)
+    {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+        <td>
+            @process.Id
+        </td>
+        <td>
+            @process.ProcessName
+        </td>
+    </tr>
+    }
+</table>
